@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Navbar from './Components/Navbar'
+import Form from './Components/Form'
+import Notes from './Components/Notes'
+import EditModal from './Components/EditModal';
+import PropTypes from 'prop-types'
 
-function App() {
+export default function App() {
+
+  const [title, settitle]=useState("")
+  const [desc, setdesc]=useState("")
+  const [notes, setnotes]=useState([])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+    <>
+    <EditModal></EditModal>
+    <Navbar></Navbar>
+    <Form title={title} settitle={settitle} desc={desc} setdesc={setdesc} notes={notes} setnotes={setnotes}></Form>
+    <Notes notes={notes}></Notes>
+    </>
+  )
+} 
