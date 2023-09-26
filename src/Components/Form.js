@@ -1,6 +1,7 @@
 import React from 'react'
 import './Form.css'
 import PropTypes from 'prop-types'
+import ErrorModal from './ErrorModal';
 
 export default function Form(props) {
     const inputhandler = (e)=>{
@@ -8,26 +9,29 @@ export default function Form(props) {
             props.settitle(e.target.value);
         else 
             props.setdesc(e.target.value);
-        console.log(props.title, props.desc);
+        
     }
-
+    // console.log(props.title, props.desc);
     const addnoteshandler = (e) =>{
         e.preventDefault()
+        if(props.title!=="" && props.desc!=="")
+        {
+
         props.setnotes((notes) => {
             return(
             [...notes,{
             title:props.title,
-            desc:props.desc
-        }]
-        )
-    })
-    props.settitle("");
-    props.setdesc("");
+            desc:props.desc,
+            id:new Date().getTime()}]
+            )
+        })
+        }
+
+        props.settitle("");
+        props.setdesc("");
     
-    }
-    
-    
-    
+}
+
   return (
     <>
         <div className="container">
@@ -44,7 +48,8 @@ export default function Form(props) {
                             <textarea name="desc"className="form-control" id="desc" placeholder="Enter your Description" value={props.desc}
                                 onChange={inputhandler}/>
                         </div>
-                        <button type="submit" className="btn btn-primary" onClick={addnoteshandler}>Add Notes</button>
+                        <button type="submit" className="btn btn-primary" onClick={addnoteshandler}
+                        {...(props.title === '' && props.desc === '' ? { "data-bs-toggle": "modal", "data-bs-target": "#exampleModalerror" } : {})}>Add Notes</button>
                     </form>
                 </div>
          </div>

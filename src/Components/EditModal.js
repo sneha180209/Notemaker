@@ -1,9 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-export default function EditModal() {
+export default function EditModal(props) {
+  // props.seteditnotes(id)
+  const updatehandler = () =>{
+    const un=props.notes.map((element)=>{
+      if(element.id===props.editnotes){
+        return({...element,
+          title:document.getElementById('edittitle').value,
+          desc:document.getElementById('editdesc').value
+      })
+        
+      }
+    })
+    // console.log(un) 
+    props.setnotes(un)
+  }
   return (
     <>
-        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
@@ -23,7 +37,7 @@ export default function EditModal() {
                 </form>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={updatehandler}>Save</button>
   
               </div>
             </div>

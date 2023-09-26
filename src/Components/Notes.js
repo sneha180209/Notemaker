@@ -1,8 +1,31 @@
 import React from 'react';
 import EditModal from './EditModal';
 import PropTypes from 'prop-types';
+import './Notes.css'
 
 export default function Notes(props) {
+
+  const removehandler=(id)=>{
+      const newnotes=props.notes.filter((element) =>{
+        if(element.id!==id){
+          return element;
+        }
+      })
+      props.setnotes(newnotes)
+  }
+
+  const edithandler=(id)=>{
+    props.seteditnotes(id)
+    props.notes.filter((element)=>{
+      if(element.id===id){
+        document.getElementById("edittitle").value=element.title;
+        document.getElementById("editdesc").value=element.desc;
+        
+      }
+      
+    })
+    
+  }
   return (
     <>
       <div className='container'>
@@ -25,8 +48,11 @@ export default function Notes(props) {
                   <div className="card-body">
                     <h5 className="card-title">{element.title}</h5>
                     <p className="card-text">{element.desc}</p>
-                    <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
-                    <button className="btn btn-danger mx-3">Delete</button>
+                    <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+                    onClick={()=>{edithandler(element.id)}}>Edit</button>
+                    <button className="btn btn-danger mx-3" onClick={()=>{
+                      removehandler(element.id)}
+                    }>Delete</button>
                   </div>
                 </div>
               ))
