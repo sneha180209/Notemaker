@@ -12,31 +12,30 @@ export default function Form(props) {
         
     }
     // console.log(props.title, props.desc);
-    const addnoteshandler = (e) =>{
-        e.preventDefault()
-        if(props.title!=="" && props.desc!=="")
-        {
-
-        props.setnotes((notes) => {
-            return(
-            [...notes,{
-            title:props.title,
-            desc:props.desc,
-            id:new Date().getTime()}]
-            )
-        })
+    const addnoteshandler = (e) => {
+        e.preventDefault();
+        if (props.title !== "" && props.desc !== "") {
+          const newNote = {
+            title: props.title,
+            desc: props.desc,
+            id: new Date().getTime(),
+            createdAt: new Date().toLocaleString(),
+            isPinned: false // Add the pinned property initially set to false
+          };
+      
+          props.setnotes((notes) => [...notes, newNote]);
         }
-
+      
         props.settitle("");
         props.setdesc("");
-    
-}
+      };
+      
 
   return (
     <>
         <div className="container">
             <h1>Add a Note</h1> 
-                <div className="col-md-10">
+                <div className="col-md-25">
                     <form className='form1'>
                         <div className="mb-3">
                             <label forhtml="title" className="form-label">Title</label>
@@ -49,7 +48,7 @@ export default function Form(props) {
                                 onChange={inputhandler}/>
                         </div>
                         <button type="submit" className="btn btn-primary" onClick={addnoteshandler}
-                        {...(props.title === '' && props.desc === '' ? { "data-bs-toggle": "modal", "data-bs-target": "#exampleModalerror" } : {})}>Add Notes</button>
+                        {...(props.title === '' || props.desc === '' ? { "data-bs-toggle": "modal", "data-bs-target": "#exampleModalerror" } : {})}>Add Notes</button>
                     </form>
                 </div>
          </div>

@@ -1,8 +1,26 @@
 .container{
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+}
+
+.gridstyle{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
 }
 
 .card-body{
     text-transform: capitalize;
+}
+
+.card{
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 345px;
+}
+
+h2{
+    font-size: small;
+    text-align: right;
+    top: 0px;
 }

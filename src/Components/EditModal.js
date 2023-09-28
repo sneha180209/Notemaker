@@ -3,13 +3,16 @@ import PropTypes from 'prop-types'
 export default function EditModal(props) {
   // props.seteditnotes(id)
   const updatehandler = () =>{
-    const un=props.notes.map((element)=>{
-      if(element.id===props.editnotes){
-        return({...element,
-          title:document.getElementById('edittitle').value,
-          desc:document.getElementById('editdesc').value
+    const un=props.notes.map((elem)=>{
+      if(props.editnotes===elem.id){
+        return({...elem,
+          title:document.getElementById("edittitle").value,
+          desc:document.getElementById("editdesc").value
       })
         
+      }
+      else{
+        return elem;
       }
     })
     // console.log(un) 

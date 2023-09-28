@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "staging": "notemaker-400414",
+    "dev": "notemaker-400414"
+  },
+  "targets": {
+    "notemaker-400414": {
+      "hosting": {
+        "notemaker-400414.web.app": [
+          "Firestore"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

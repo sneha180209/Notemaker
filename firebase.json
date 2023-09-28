@@ -1,0 +1,12 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false
+  },
+
+  "hosting": {
+    "target": "notemaker-400414.web.app",
+    "public": "public",
+    "locationId": "asia-southeast1"
+  }
+}
