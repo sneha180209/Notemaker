@@ -1,0 +1,31 @@
+.darkmode{
+    margin-left: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 50px;
+    border: none;
+    width: 140px;
+    height: 40px;
+    background: rgb(38, 34, 34);
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+.darkmode .img1{
+    position: relative;
+    left: 30px;
+    transition: left 0.5s ease;
+    
+}
+
+
+
+.darkmode .img2{
+    position: relative;
+    left: -30px;
+    transition: left 0.5s ease;
+
+}
+
+
+
+

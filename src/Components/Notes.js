@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import EditModal from './EditModal';
 import PropTypes from 'prop-types';
 import './Notes.css';
+import { API, graphqlOperation } from 'aws-amplify';
+import { deleteTodo } from '../graphql/notemaker/mutations';
 
 export default function Notes(props) {
   const notesPerPage = 6; // Maximum notes per page
@@ -12,13 +14,18 @@ export default function Notes(props) {
   const indexOfFirstNote = indexOfLastNote - notesPerPage;
   const currentNotes = props.notes.slice(indexOfFirstNote, indexOfLastNote);
 
-  const removehandler = (id) => {
-    const newnotes = props.notes.filter((element) => {
-      if (element.id !== id) {
-        return element;
-      }
-    });
+  const removehandler = async (id) => {
+    // Remove the note from the local state first
+    const newnotes = props.notes.filter((element) => element.id !== id);
     props.setnotes(newnotes);
+
+    try {
+      // Use the GraphQL mutation to delete the note from the database
+      await API.graphql(graphqlOperation(deleteTodo, { input: { id } }));
+      console.log('Note deleted from the database.');
+    } catch (error) {
+      console.error('Error deleting note from the database:', error);
+    }
   };
 
   const edithandler = (id) => {
@@ -75,7 +82,7 @@ export default function Notes(props) {
             ) : (
               <div class="gridstyle">
               {sortedNotes.map((element) => (
-                <div className="card my-3" key={element.id}>
+                <div className="card my-3" key={element.id} style={{ backgroundColor: element.color }}>
                   <div className="card-body">
                     <h2>{element.createdAt}</h2>
                     <h5 className="card-title">{element.title}</h5>

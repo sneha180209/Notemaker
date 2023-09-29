@@ -5,7 +5,7 @@
   },
 
   "hosting": {
-    "target": "notemaker-400414.web.app",
+    "target": "notemaker-400414.firebaseapp.com",
     "public": "public",
     "locationId": "asia-southeast1"
   }

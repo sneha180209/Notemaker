@@ -2,6 +2,11 @@
     display: grid;
 }
 
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
 .gridstyle{
     display: flex;
     flex-direction: row;

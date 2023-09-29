@@ -1,23 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { API, graphqlOperation } from 'aws-amplify';
+import { updateTodo, deleteTodo } from '../graphql/notemaker/mutations';
 export default function EditModal(props) {
-  // props.seteditnotes(id)
-  const updatehandler = () =>{
-    const un=props.notes.map((elem)=>{
-      if(props.editnotes===elem.id){
-        return({...elem,
-          title:document.getElementById("edittitle").value,
-          desc:document.getElementById("editdesc").value
-      })
-        
+    const updatehandler = async () => {
+      const updatedNote = {
+        id: props.editnotes,
+        title: document.getElementById("edittitle").value,
+        desc: document.getElementById("editdesc").value,
+      };
+  
+      try {
+        // Use the GraphQL mutation to update the note in the database
+        await API.graphql(graphqlOperation(updateTodo, { input: updatedNote }));
+        console.log('Note updated in the database.');
+  
+        // Update the local state with the updated note
+        const updatedNotes = props.notes.map((elem) => {
+          if (elem.id === props.editnotes) {
+            return { ...elem, ...updatedNote };
+          }
+          return elem;
+        });
+  
+        props.setnotes(updatedNotes);
+      } catch (error) {
+        console.error('Error updating note in the database:', error);
       }
-      else{
-        return elem;
-      }
-    })
-    // console.log(un) 
-    props.setnotes(un)
-  }
+    };
+  
   return (
     <>
         <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

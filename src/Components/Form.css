@@ -2,4 +2,99 @@
     border: 2px solid rgb(189, 189, 189);
     border-radius: 10px;
     padding: 30px;
+    margin-bottom: 10px;
+    /* width: 1090px; */
+}
+
+.note{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+
+}
+
+.btnaddnotes{
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 1.5rem;
+    border: none;
+    background: #beb3e2;
+    background-size: 400%;
+    color: #ffffff;
+}
+
+.addnotesspan{
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+.btnaddnotes::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0); /* Initially, set the width to zero */
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(83.2deg, rgba(150, 93, 233, 1) 10.8%, rgba(99, 88, 238, 1) 94.3%);
+    transition: transform 0.5s; /* Apply transition to the transform property */
+  }
+  
+  .btnaddnotes:hover::before {
+    transform: scaleX(1); /* Expand the width to full on hover */
+  }
+  
+
+.c1,.c2,.c3,.c4,.c5{
+    margin: 10px;
+    padding: 0px;
+    /* left: -10px; */
+    border-radius: 50%;
+    border: 2px solid rgb(189, 189, 189);
+    width: 30px;
+    height: 30px;
+}
+.c1{
+    background-color: rgb(255, 70, 70);
+    border: 2px solid rgb(255, 70, 70);
+    cursor: pointer;
+}
+
+.c2{
+    background-color: rgb(255, 165, 0);
+    border: 2px solid rgb(255, 165, 0);
+    cursor: pointer;
+}
+
+.c3{
+    background-color: rgb(255, 255, 0);
+    border: 2px solid rgb(255, 255, 0);
+    cursor: pointer;
+}
+
+.c4{
+    background-color: rgb(63, 213, 63);
+    border: 2px solid rgb(63, 213, 63);
+    cursor: pointer;
+}
+
+.c5{
+    background-color: rgb(76, 76, 220);
+    border: 2px solid rgb(76, 76, 220);
+    cursor: pointer;
+}
+
+.color-options{
+    margin-left: -10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    flex-wrap: wrap;
+    /* left: -20px; */
 }

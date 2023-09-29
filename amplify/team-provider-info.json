@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-notemaker-dev-140010-authRole",
+      "UnauthRoleArn": "arn:aws:iam::585608798098:role/amplify-notemaker-dev-140010-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::585608798098:role/amplify-notemaker-dev-140010-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-notemaker-dev-140010-deployment",
+      "UnauthRoleName": "amplify-notemaker-dev-140010-unauthRole",
+      "StackName": "amplify-notemaker-dev-140010",
+      "StackId": "arn:aws:cloudformation:us-east-2:585608798098:stack/amplify-notemaker-dev-140010/6bb6d080-5ea2-11ee-bdbf-0a6e9d2972b1",
+      "AmplifyAppId": "d2gevdjw281ztm"
+    },
+    "categories": {
+      "api": {
+        "notemaker": {}
+      }
+    }
+  }
+}

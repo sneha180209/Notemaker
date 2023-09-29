@@ -6,7 +6,7 @@
   "targets": {
     "notemaker-400414": {
       "hosting": {
-        "notemaker-400414.web.app": [
+        "notemaker-400414.firebaseapp.com": [
           "Firestore"
         ]
       }

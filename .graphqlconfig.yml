@@ -1,0 +1,15 @@
+projects:
+  notemaker:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/graphql/notemaker/notegraphql.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src/graphql/notemaker
+extensions:
+  amplify:
+    version: 3
