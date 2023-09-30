@@ -10,22 +10,19 @@
     box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.8);
 }
 
-.darkmode .img1{
-    position: relative;
-    left: 30px;
-    transition: left 0.5s ease;
-    
-}
-
-
-
-.darkmode .img2{
+.darkmode .img1 {
     position: relative;
     left: -30px;
     transition: left 0.5s ease;
-
-}
-
+    visibility: hidden;
+  }
+  
+  .darkmode .img2 {
+    position: relative;
+    left: -30px;
+    transition: left 0.5s ease;
+  }
+  
 
 
 

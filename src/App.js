@@ -28,27 +28,26 @@ export default function App() {
   // Function to toggle dark mode
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-    if(l.style.left==="-30px" || l.style.left===""){
-      d.style.left="30px";
-      l.style.visibility="hidden";
-      l.style.left="30px"
-      d.style.visibility="visible";
+    const d = document.querySelector('.img1');
+    const b = document.querySelector('.img2');
+  
+    if (b.style.left === "-30px" || b.style.left === "") {
+      d.style.visibility = "visible";
+      d.style.left = "30px";
+      b.style.visibility = "hidden";
+      b.style.left = "30px";
+      
     }
-    else if(d.style.left==="30px" || d.style.left==="")
-    {
-      l.style.visibility="visible";
-      l.style.left="-30px";
-      d.style.left="-30px";
-      // l.style.left="-30px";
-      d.style.visibility="hidden";
+    
+    else if(d.style.left==="30px" || d.style.left==="") {
+      b.style.visibility = "visible";
+      b.style.left = "-30px";
+      d.style.left = "-30px";
+      d.style.visibility = "hidden";
+  
     }
-    // else{
-    //   d.style.left="-30px";
-    //   l.style.visibility="visible";
-    //   // d.style.visibility="hidden";
-    //   // l.style.left="30px";
-    // }
   };
+  
   
 
   useEffect(() => {

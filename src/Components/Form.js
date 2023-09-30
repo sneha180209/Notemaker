@@ -50,9 +50,9 @@ export default function Form(props) {
     <>
       <div className="container">
         <h1 className='note'>Add a Note</h1>
-        <div className="col-md-25">
+        <div className="col-md-15">
           <form className="form1">
-            <div className="mb-3">
+            <div className="mb">
               <label htmlFor="title" className="form-label">
                 Title
               </label>

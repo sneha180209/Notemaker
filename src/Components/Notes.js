@@ -69,8 +69,8 @@ export default function Notes(props) {
     <>
       <div className="container" id="c1">
         <div className="row justify-content-center">
-          <div className="col md-10">
-            <h1 className="mb-3 my-5">Your Notes</h1>
+          <div className="col md-5">
+            <h1 className="mb-3 my-3">Your Notes</h1>
 
             {sortedNotes.length === 0 ? (
               <div className="card my-3">
@@ -82,9 +82,10 @@ export default function Notes(props) {
             ) : (
               <div class="gridstyle">
               {sortedNotes.map((element) => (
-                <div className="card my-3" key={element.id} style={{ backgroundColor: element.color }}>
+                <div className="card my-0" key={element.id} style={{ backgroundColor: element.color }}>
                   <div className="card-body">
-                    <h2>{element.createdAt}</h2>
+                  <h2>{new Date(element.createdAt).toLocaleString()}</h2>
+
                     <h5 className="card-title">{element.title}</h5>
                     <p className="card-text">{element.desc}</p>
                     <button
