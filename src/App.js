@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
 import Navbar from './Components/Navbar';
 import Form from './Components/Form';
 import Notes from './Components/Notes';
 import EditModal from './Components/EditModal';
 import ErrorModal from './Components/ErrorModal';
+import Archive from './pages/Archive'
+import Home from './pages/Home'
 import {Amplify} from 'aws-amplify';
 import awsconfig from './aws-exports';
 import { API, graphqlOperation } from 'aws-amplify';
@@ -90,11 +97,14 @@ export default function App() {
   return (
     <>
     {/* <button onClick={toggleDarkMode}>Toggle Dark Mode</button> */}
-      <EditModal editnotes={editnotes} notes={notes} seteditnotes={seteditnotes} setnotes={setnotes}></EditModal>
+      <Router>
       <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} setDarkMode={setDarkMode}></Navbar>
-      <Form title={title} settitle={settitle} desc={desc} setdesc={setdesc} notes={notes} setnotes={setnotes}></Form>
-      <Notes notes={notes} setnotes={setnotes} editnotes={editnotes} seteditnotes={seteditnotes}></Notes>
-      <ErrorModal></ErrorModal>
+        <Routes>
+          <Route path='/home' element={<Home title={title} settitle={settitle} desc={desc} setdesc={setdesc} notes={notes} setnotes={setnotes} editnotes={editnotes} seteditnotes={seteditnotes} pinned={pinned} setPinned={setPinned} />} />
+          <Route path='/archive' element={<Archive />} />  
+        </Routes>
+      </Router>
+
     </>
   );
 }

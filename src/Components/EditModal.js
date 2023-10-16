@@ -52,7 +52,6 @@ export default function EditModal(props) {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={updatehandler}>Save</button>
-  
               </div>
             </div>
           </div>

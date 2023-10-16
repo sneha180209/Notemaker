@@ -114,6 +114,7 @@ export default function Notes(props) {
                     >
                       {element.isPinned ? "Unpin" : "Pin"}
                     </button>
+                    <button className='btn btn-dark mx-2'>Archive</button>
                   </div>
                 </div>
               ))}
