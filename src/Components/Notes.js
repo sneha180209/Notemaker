@@ -6,6 +6,10 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { deleteTodo } from '../graphql/notemaker/mutations';
 
 export default function Notes(props) {
+  const archive=[];
+  const [archivenotes, setarchivenotes] = useState(archive);
+  
+
   const notesPerPage = 6; // Maximum notes per page
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -114,7 +118,10 @@ export default function Notes(props) {
                     >
                       {element.isPinned ? "Unpin" : "Pin"}
                     </button>
-                    <button className='btn btn-dark mx-2'>Archive</button>
+                    <button className='btn btn-dark mx-3'
+                    onClick={() => {
+                      archive(element.id);
+                    }}>Archive</button>
                   </div>
                 </div>
               ))}

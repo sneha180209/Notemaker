@@ -8,7 +8,9 @@ export default function EditModal(props) {
         id: props.editnotes,
         title: document.getElementById("edittitle").value,
         desc: document.getElementById("editdesc").value,
+        
       };
+      // console.log('hi')
   
       try {
         // Use the GraphQL mutation to update the note in the database
