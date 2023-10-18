@@ -9,7 +9,7 @@ function Home(props) {
     <>
     <EditModal title={props.title} settitle={props.settitle} desc={props.desc} setdesc={props.setdesc} editnotes={props.editnotes} notes={props.notes} seteditnotes={props.seteditnotes} setnotes={props.setnotes}></EditModal>
     <Form title={props.title} settitle={props.settitle} desc={props.desc} setdesc={props.setdesc} notes={props.notes} setnotes={props.setnotes}></Form>
-    {props.notes && (<Notes notes={props.notes} setnotes={props.setnotes} editnotes={props.editnotes} seteditnotes={props.seteditnotes}/>)}
+    {props.notes && (<Notes notes={props.notes} setnotes={props.setnotes} editnotes={props.editnotes} seteditnotes={props.seteditnotes} archivenotes={props.archivenotes} setarchivenotes={props.setarchivenotes} />)}
     <ErrorModal></ErrorModal> 
     </>
 
