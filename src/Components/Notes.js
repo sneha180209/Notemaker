@@ -6,9 +6,6 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { deleteTodo } from '../graphql/notemaker/mutations';
 
 export default function Notes(props) {
-  // const archive=[];
-  const [archivenotes, setarchivenotes] = useState([]);
-  
 
   const notesPerPage = 6; // Maximum notes per page
 
@@ -34,9 +31,9 @@ export default function Notes(props) {
 
   const archive=async(id) =>{
     const anotes = props.notes.filter((element) => element.id !== id);
-    setarchivenotes(anotes);
+    props.setarchivenotes(anotes);
     props.setnotes(anotes);
-    console.log(archivenotes);
+    console.log(props.archivenotes);
   
   }
 

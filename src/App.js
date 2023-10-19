@@ -27,6 +27,7 @@ export default function App() {
   const [notes, setnotes] = useState([]);
   const [editnotes, seteditnotes] = useState('');
   const [pinned, setPinned] = useState([]);
+  const [archivenotes, setarchivenotes] = useState([]);
 
   const [darkMode, setDarkMode] = useState(false);
 
