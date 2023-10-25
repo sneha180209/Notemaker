@@ -29,13 +29,25 @@ export default function Notes(props) {
     }
   };
 
-  const archive=async(id) =>{
-    const anotes = props.notes.filter((element) => element.id !== id);
-    props.setarchivenotes(anotes);
-    props.setnotes(anotes);
-    console.log(props.archivenotes);
+  const archive = async (id) => {
+    const archivedNote = props.notes.find((element) => element.id === id);
+    
+    // Add the archived note to the archive notes array
+    props.setarchivenotes([...props.archivenotes, archivedNote]);
+
+    // Remove the archived note from the main notes array
+    const newNotes = props.notes.filter((element) => element.id !== id);
+    props.setnotes(newNotes);
+
+    // Log the archived note to the console
+    console.log('Archived Note:', archivedNote);
+
+    // Log the updated archive notes array
+    console.log('Archive Notes Array:', props.archivenotes);
+};
+
   
-  }
+  
 
   const edithandler = (id) => {
     props.seteditnotes(id);

@@ -101,8 +101,8 @@ export default function App() {
       <Router>
       <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} setDarkMode={setDarkMode}></Navbar>
         <Routes>
-          <Route path='/home' element={<Home title={title} settitle={settitle} desc={desc} setdesc={setdesc} notes={notes} setnotes={setnotes} editnotes={editnotes} seteditnotes={seteditnotes} pinned={pinned} setPinned={setPinned} />} />
-          <Route path='/archive' element={<Archive />} />  
+          <Route path='/home' element={<Home title={title} settitle={settitle} desc={desc} setdesc={setdesc} notes={notes} setnotes={setnotes} editnotes={editnotes} seteditnotes={seteditnotes} pinned={pinned} setPinned={setPinned} archivenotes={archivenotes} setarchivenotes={setarchivenotes}/>} />
+          <Route path='/archive' element={<Archive archivenotes={archivenotes} setarchivenotes={setarchivenotes} />} />  
         </Routes>
       </Router>
 
