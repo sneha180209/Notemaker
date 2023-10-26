@@ -43,7 +43,7 @@ export default function Notes(props) {
     console.log('Archived Note:', archivedNote);
 
     // Log the updated archive notes array
-    console.log('Archive Notes Array:', props.archivenotes);
+    console.log('Archive Notes Array:', props.setarchivenotes);
 };
 
   
